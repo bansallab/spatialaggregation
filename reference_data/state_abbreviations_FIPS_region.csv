@@ -1,0 +1,52 @@
+fips,State,Abbreviation,Region
+09,Connecticut,CT,1
+23,Maine,ME,1
+25,Massachusetts,MA,1
+33,New Hampshire,NH,1
+44,Rhode Island,RI,1
+50,Vermont,VT,1
+36,New York,NY,2
+34,New Jersey,NJ,2
+10,Delaware,DE,3
+11,District of Columbia,DC,3
+24,Maryland,MD,3
+42,Pennsylvania,PA,3
+51,Virginia,VA,3
+54,West Virginia,WV,3
+01,Alabama,AL,4
+12,Florida,FL,4
+13,Georgia,GA,4
+21,Kentucky,KY,4
+28,Mississippi,MS,4
+37,North Carolina,NC,4
+45,South Carolina,SC,4
+47,Tennessee,TN,4
+17,Illinois,IL,5
+18,Indiana,IN,5
+26,Michigan,MI,5
+27,Minnesota,MN,5
+39,Ohio,OH,5
+55,Wisconsin,WI,5
+05,Arkansas,AR,6
+22,Louisiana,LA,6
+35,New Mexico,NM,6
+40,Oklahoma,OK,6
+48,Texas,TX,6
+19,Iowa,IA,7
+20,Kansas,KS,7
+29,Missouri,MO,7
+31,Nebraska,NE,7
+08,Colorado,CO,8
+30,Montana,MT,8
+38,North Dakota,ND,8
+46,South Dakota,SD,8
+49,Utah,UT,8
+56,Wyoming,WY,8
+04,Arizona,AZ,9
+06,California,CA,9
+15,Hawaii,HI,9
+32,Nevada,NV,9
+02,Alaska,AK,10
+16,Idaho,ID,10
+41,Oregon,OR,10
+53,Washington,WA,10
