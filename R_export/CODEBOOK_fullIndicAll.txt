@@ -1,0 +1,73 @@
+CODEBOOK
+Elizabeth Lee (elizabeth.c.lee@jhu.edu)
+
+Original Source: IMS Health ILI data
+
+Filenames:
+fullIndicAll_periodicReg_irDt_Octfit_span0.4_degree2_analyzeDB_cty.csv
+fullIndicAll_periodicReg_irDt_Octfit_span0.4_degree2_analyzeDB_st.csv
+fullIndicAll_periodicReg_irDt_Octfit_span0.4_degree2_analyzeDB_reg.csv
+
+1) Ratio of ILI to total visits for any diagnosis (iliProp) were first converted from the zip3 scale to the county scale according to population-weighted contributions of zip3s to each county.
+2) iliProp*100 (IR) was fit with a LOESS curve (span 0.4, degree 2) for all weeks from April through October (indicated with fit.week) for each county individually. 
+3) IR was substracted from the LOESS curve fitted mean (.fitted) to get the detrended time series value (ir.dt), which is what is used as the processed ILI seasonal intensity. For weeks where .fitted > ILIn, I designated those as "non-epidemic weeks" (indicated as incl.lm2) and assigned ir.dt to zero.
+
+**** Key Column Descriptions ****
+
+fips: 5-digit county FIPS code
+state: US state abbreviation
+region: unique HHS region identifier ("R" + region number)
+
+Thu.week: weekdate of the Thursday in the middle of the week for which data are reported (Thursday dates are consistent with ISO week numbers)
+
+.fitted: fitted value mean of the periodic regression
+
+.se.fit: standard error for the fitted value of the periodic regression
+
+.fittedLoess: fitted value mean of the LOESS curve
+
+.se.fitLoess: standard error for the fitted value of the LOESS curve
+week: weekdate of the Sunday at the beginning of the week for which data are reported
+
+year: year
+
+month: numerical representation of the month
+
+flu.week: logical indicator for the weeks during the flu season period (November through April)
+
+t: numerical week identifier
+
+fit.week: logical indicator for the weeks that were used to fit the LOESS curve (April through October)
+
+ili: raw ILI counts, back-calculated from ilin to the county scale
+
+viz: raw total visits for any diagnosis, back-calculated from vizn to the county scale
+
+iliProp: ratio of ILI to total visits for any diagnosis
+
+pop: total population size in the county for that year
+
+vizn: ratio of total visits for any diagnosis to population
+
+ilin: ratio of ILI to population
+
+IR: iliProp * 100 (percentage of total visits due to ILI)
+incl.lm: logical indicator for counties that should be fit with LOESS curves. FALSE if pop or ILIn are NA.
+
+incl.lm2: logical indicator for county-weeks that have non-zero detrended data. FALSE if ILIn < .fitted.
+
+ir.dt: detrended IR data, calculated as the difference between IR and .fitted if incl.lm2 is TRUE.
+
+wknum: ISO week number
+
+season: influenza season indicator, where the incomplete 2000-2001 season is "1", the 2001-2002 season is "2," etc.
+
+epi.thresh: The value of the epidemic threshold for county-weeks where the incl.lm2 logical indicator is TRUE. This is calculated as .fitted+(1.96*.se.fit). If the incl.km2 logical indicator is FALSE, the value is 0.
+
+epi.week: logical indicator for county-weeks where ir.dt (influenza activity) exceeds the epi.thresh (epidemic threshold)
+
+incl.analysis: logical indicator for county-season combinations that meet our standards for "not being too noisy" or "having a clear influenza season signal". This indicator is TRUE if the number of consecutive weeks where epi.week is TRUE greater than or equal to the number of consecutive weeks where epi.week is FALSE.
+
+has.epi: logical indicator for county-season combinations that we consider to have had influenza season epidemics. This indicator is TRUE if the number of consecutive flu season weeks that exceeds the epidemic threshold is greater than an 2. We chose 2 weeks as the threshold based on an exploratory/empirical examination of our data.
+
+in.season: logical indicator for county-weeks that are in the influenza season. They must meet all of the following criteria: flu.week, has.epi, incl.analysis, and be part of a consecutive set of at least 2 weeks where influenza activity (ir.dt) exceeds the epidemic threshold (epi.thresh)
