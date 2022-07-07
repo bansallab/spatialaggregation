@@ -1,6 +1,6 @@
 # Spatial aggregation choice in the era of digital and administrative surveillance data
 
-This repository provides the data and source code for the following paper: Lee, Elizabeth C., Ali Arab, Vittoria Colizza, and Shweta Bansal. (in press) "Spatial aggregation choice in the era of digital and administrative surveillance data." PLOS Digital Health.
+This repository provides the data and source code for the following paper: Lee, Elizabeth C., Ali Arab, Vittoria Colizza, and Shweta Bansal. "Spatial aggregation choice in the era of digital and administrative surveillance data." PLOS Digital Health. https://doi.org/10.1371/journal.pdig.0000039
 
 Note: This repository uses git lfs due to a handful of large files. You may need to install this extension on your computer to pull these large files when cloning the repository. See more details [here](https://git-lfs.github.com/).
 
